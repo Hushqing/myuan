@@ -1,0 +1,57 @@
+{
+  // 漫画源基本信息配置
+  "BOOK_SOURCE_URL": "https://18comic.vip",  // 漫画源的根URL地址，作为唯一标识符
+  "BOOK_SOURCE_NAME": "禁漫天堂",  // 漫画源的显示名称，用于在应用中展示
+  "BOOK_SOURCE_GROUP": "漫画",  // 漫画源分组，用于分类管理不同类型的源
+  "BOOK_SOURCE_TYPE": 0,  // 漫画源类型：0=漫画源，1=小说源等
+  "BOOK_SOURCE_COMMENT": "18comic禁漫天堂官方站点",  // 漫画源的描述信息
+  "BOOK_SOURCE_ENABLED": true,  // 是否启用此漫画源：true=启用，false=禁用
+  "BOOK_SOURCE_CUSTOM_ORDER": 0,  // 自定义排序序号，数值越小排序越靠前
+  "BOOK_SOURCE_TOP": 1,  // 是否置顶：0=不置顶，1=置顶
+  "BOOK_SOURCE_LAST_UPDATE_TIME": 0,  // 最后更新时间戳，0表示未设置
+  "BOOK_SOURCE_WEIGHT": 0,  // 漫画源权重，影响搜索结果排序
+  "BOOK_SOURCE_EXPLICIT": true,  // 是否为成人内容：true=成人内容，false=普通内容
+  
+  // 发现页面规则配置 - 用于获取最新/热门漫画列表
+  "RULE_FIND_URL": "https://18comic.vip/albums?o=mr&page={{page}}",  // 发现页面URL模板，{{page}}为页码占位符
+  "RULE_FIND_LIST": ".thumb-overlay-albums .thumb-overlay",  // CSS选择器：定位漫画列表中每个漫画项的容器
+  "RULE_FIND_NAME": ".video-title@text",  // CSS选择器：提取漫画名称，@text表示获取文本内容
+  "RULE_FIND_AUTHOR": ".category@text",  // CSS选择器：提取作者信息
+  "RULE_FIND_KIND": ".category@text",  // CSS选择器：提取漫画分类/标签
+  "RULE_FIND_LAST_CHAPTER": "",  // 最新章节规则，空字符串表示不获取此信息
+  "RULE_FIND_COVER_URL": "img@data-original",  // CSS选择器：提取封面图片URL，@data-original表示获取data-original属性值
+  "RULE_FIND_NOTE_URL": "a@href",  // CSS选择器：提取漫画详情页链接，@href表示获取href属性值
+  
+  // 搜索规则配置 - 用于根据关键词搜索漫画
+  "RULE_SEARCH_URL": "https://18comic.vip/search/photos?search_query={{key}}&page={{page}}",  // 搜索URL模板，{{key}}为搜索关键词占位符
+  "RULE_SEARCH_LIST": ".thumb-overlay-albums .thumb-overlay",  // 搜索结果列表的CSS选择器
+  "RULE_SEARCH_NAME": ".video-title@text",  // 搜索结果中漫画名称的提取规则
+  "RULE_SEARCH_AUTHOR": ".category@text",  // 搜索结果中作者信息的提取规则
+  "RULE_SEARCH_KIND": ".category@text",  // 搜索结果中分类信息的提取规则
+  "RULE_SEARCH_LAST_CHAPTER": "",  // 搜索结果中最新章节的提取规则（未设置）
+  "RULE_SEARCH_COVER_URL": "img@data-original",  // 搜索结果中封面图片的提取规则
+  "RULE_SEARCH_NOTE_URL": "a@href",  // 搜索结果中详情页链接的提取规则
+  
+  // 漫画详情页规则配置 - 用于获取单个漫画的详细信息
+  "RULE_BOOK_URL_PATTERN": "https://18comic.vip/album/\\d+",  // 漫画详情页URL的正则表达式模式，\\d+匹配数字ID
+  "RULE_BOOK_NAME": ".panel-heading h1@text",  // 漫画标题的CSS选择器
+  "RULE_BOOK_AUTHOR": ".tag-block a@text",  // 作者信息的CSS选择器
+  "RULE_BOOK_KIND": ".tag-block a@text",  // 漫画分类/标签的CSS选择器
+  "RULE_BOOK_LAST_CHAPTER": ".episode:last .btn@text",  // 最新章节的CSS选择器，:last表示最后一个元素
+  "RULE_BOOK_INTRO": ".p-t-5 p@text",  // 漫画简介的CSS选择器
+  "RULE_BOOK_COVER_URL": ".thumb-overlay img@data-original",  // 封面图片的CSS选择器
+  "RULE_BOOK_LAST_TIME": ".update-date@text",  // 最后更新时间的CSS选择器
+  
+  // 章节列表规则配置 - 用于获取漫画的所有章节
+  "RULE_CHAPTER_URL": "https://18comic.vip/photo/{{bookId}}",  // 章节页面URL模板，{{bookId}}为漫画ID占位符
+  "RULE_CHAPTER_LIST": ".episode",  // 章节列表容器的CSS选择器
+  "RULE_CHAPTER_NAME": ".btn@text",  // 章节名称的CSS选择器
+  "RULE_CHAPTER_URL_NEXT": ".btn@href",  // 章节链接的CSS选择器
+  
+  // 漫画内容规则配置 - 用于获取章节中的图片内容
+  "RULE_CONTENT_URL": "{{chapterUrl}}",  // 内容页面URL，直接使用章节URL
+  "RULE_CONTENT_URL_NEXT": ".read-block img@data-original",  // 漫画图片的CSS选择器，获取所有图片的data-original属性
+  
+  // HTTP请求配置
+  "HTTP_USER_AGENT": "Mozilla/5.0 (Linux; Android 14; SM-G998B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"  // 手机Chrome浏览器最新版用户代理字符串，模拟移动端访问以避免反爬虫检测
+}
